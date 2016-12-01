@@ -1,0 +1,26 @@
+var een = parseInt (1);
+var twee = parseInt (2);
+var drie = parseInt (3);
+var vier = parseInt (4);
+var vijf = parseInt (5);
+var zes = parseInt (6);
+var zeven = parseInt (7);
+var acht = parseInt (8);
+var negen = parseInt (9);
+var tien = parseInt (10);
+var elf = parseInt (11);
+var twaalf = parseInt (12);
+var dertien = parseInt (13);
+var veertien = parseInt (14);
+var vijftien = parseInt (15);
+var zestien = parseInt (16);
+var zeventien = parseInt (17);
+var achttien= parseInt (18);
+var negentien = parseInt (19);
+var twintig = parseInt (20);
+
+var dubbel = parseInt (2);
+var tripel = parseInt (3);
+var bull = parseInt (25);
+var bullseye = parseInt (50);
+    
