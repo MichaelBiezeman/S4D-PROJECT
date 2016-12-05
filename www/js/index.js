@@ -37,14 +37,13 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+        
+        //window.addEventListener("batterystatus", onBatteryStatus, false);
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
+        // function onBatteryStatus(status) {
+        //     alert("Level: " + status.level + " isPlugged: " + status.isPlugged);
+        //     document.getElementById("level").innerHTML = status.level
+        //     document.getElementById("isPlugged").innerHTML = status.isPlugged
+        // }
     }
 };
-console.log('kaas');

@@ -39,22 +39,84 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title>
+    <title>Speech Darts</title>
 </head>
 
 <body>
     <div class="app">
-        <h1>PhoneGap TEST!!</h1>
+        <h1>Speech Plugin Example</h1>
         <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
+            <!--<p>Battery Percentage: <span id="level"></span>%</p>
+            <p>Plugged In: <span id="isPlugged"></span></p>-->
+            <p class="output"><em>...spraakopnamen</em></p>
+        </div>
+        <div>
+            <button id="btn_speech">Start Talking!</button>
         </div>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         app.initialize();
+
+        var recognition;
+        document.addEventListener('deviceready', onDeviceReady, false);
+
+        function onDeviceReady() {
+            recognition = new SpeechRecognition();
+            recognition.onresult = function(event) {
+                if (event.results.length > 0) {
+                    q.value = event.results[0][0].transcript;
+                    q.form.submit();
+                }
+            }
+        }
     </script>
+    <form action="http://www.example.com/search">
+        <input type="search" id="q" name="q" size=60>
+        <input type="button" value="Click to Speak" onclick="recognition.start()">
+    </form>
+
+        <!--// window.plugins.speechRecognition.isRecognitionAvailable(Function successCallback, Function errorCallback)
+
+        // let options = {
+        //     String "nl-NL",
+        //     Number 5,
+        //     String "",      // Android only 
+        //     Boolean true,  // Android only 
+        // }
+ 
+        // window.plugins.speechRecognition.startListening(Function successCallback, Function errorCallback, Object options)
+
+        // window.plugins.speechRecognition.getSupportedLanguages(Function successCallback, Function errorCallback)
+
+        // // getSupportedLanguages result on Android: 
+ 
+        // let supportedLanguagesAndroid =
+        //   ["af-ZA", "id-ID", "ms-MY", "ca-ES", "cs-CZ", "da-DK", "de-DE", "en-AU", "en-CA",
+        //   "en-001", "en-IN", "en-IE", "en-NZ", "en-PH", "en-ZA", "en-GB", "en-US", "es-AR",
+        //   "es-BO", "es-CL", "es-CO", "es-CR", "es-EC", "es-US", "es-SV", "es-ES", "es-GT",
+        //   "es-HN", "es-MX", "es-NI", "es-PA", "es-PY", "es-PE", "es-PR", "es-DO", "es-UY",
+        //   "es-VE", "eu-ES", "fil-PH", "fr-FR", "gl-ES", "hr-HR", "zu-ZA", "is-IS", "it-IT",
+        //   "lt-LT", "hu-HU", "nl-NL", "nb-NO", "pl-PL", "pt-BR", "pt-PT", "ro-RO", "sl-SI",
+        //   "sk-SK", "fi-FI", "sv-SE", "vi-VN", "tr-TR", "el-GR", "bg-BG", "ru-RU", "sr-RS",
+        //   "uk-UA", "he-IL", "ar-IL", "ar-JO", "ar-AE", "ar-BH", "ar-DZ", "ar-SA", "ar-KW",
+        //   "ar-MA", "ar-TN", "ar-OM", "ar-PS", "ar-QA", "ar-LB", "ar-EG", "fa-IR", "hi-IN",
+        //   "th-TH", "ko-KR", "cmn-Hans-CN", "cmn-Hans-HK", "cmn-Hant-TW", "yue-Hant-HK",
+        //   "ja-JP"];
+
+        // document.addEventListener("deviceready", onDeviceReady, false)
+        // document.addEventListener("batterystatus", onBatteryStatus, false)
+
+        // function onBatteryStatus(info){
+        //     alert(info.Level + " " + info.isPlugged)
+        // }
+
+        // function onDeviceReady(){
+        //     alert("READY")
+        // }
+
+    </script-->
 </body>
 
 </html>
