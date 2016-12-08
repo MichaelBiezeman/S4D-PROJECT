@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Counting with a global variable.</p>
+<button id="doublebtn" onclick="doubleAan()" value="0" type="button">2X</button>
+<button id="triplebtn" onclick="tripleAan()" value="0" type="button">3X</button>
+
+<input type="text" id="gegooidInvoer">
+<button id="countKnop" type="button" onclick="gegooideScore()">Count!</button>
+
+
+<p id="geteldeScore"></p>
+<p id="afgehaaldeScore"></p> 
+
+<br><button id="reset" type="button" onclick="resetDbl()">Toch geen double of triple gegooid?</button>
+
+<script>
+var score = 501;
+document.getElementById("geteldeScore").innerHTML=score
+
+var nul = 0
+var een = 1;
+var twee = 2;
+var drie = 3;
+var vier = 4;
+var vijf = 5;
+var zes = 6;
+var zeven = 7;
+var acht = 8;
+var negen = 9;
+var tien = 10;
+var elf = 11;
+var twaalf = 12;
+var dertien = 13;
+var veertien = 14;
+var vijftien = 15;
+var zestien = 16;
+var zeventien = 17;
+var achttien= 18;
+var negentien = 19;
+var twintig = 20;
+var bull = 25;
+var bullseye = 50;
+
+
+var tripleOn = 0
+var doubleOn = 0
+
+function gegooideScore(){
+	var hetVeld = document.getElementById("gegooidInvoer")
+
+//	if(isNaN == true ){
+//		hetVeld.value=0
+//		}
+	if(hetVeld.value < 0){
+		hetVeld.value=0
+		alert("Je kunt alleen 0 of hoger gooien")
+	}
+	
+	if(isNaN == true){
+		hetVeld.value=0
+	}
+	else if(hetVeld.value == "nul" || hetVeld.value == 0){
+		hetVeld.value=0
+	}
+	else if(hetVeld.value == "een" || hetVeld.value == 1){
+		hetVeld.value=1
+	}
+	else if(hetVeld.value == "twee" || hetVeld.value == 2){
+		hetVeld.value=2
+	}
+	else if(hetVeld.value == "drie" || hetVeld.value == 3){
+		hetVeld.value=3
+	}
+	else if(hetVeld.value == "vier" || hetVeld.value == 4){
+		hetVeld.value=4
+	}
+	else if(hetVeld.value == "vijf" || hetVeld.value == 5){
+		hetVeld.value=5
+	}
+	else if(hetVeld.value == "zes" || hetVeld.value == 6){
+		hetVeld.value=6
+	}
+	else if(hetVeld.value == "zeven" || hetVeld.value == 7){
+		hetVeld.value=7
+	}
+	else if(hetVeld.value == "acht" || hetVeld.value == 8){
+		hetVeld.value=8
+	}
+	else if(hetVeld.value == "negen" || hetVeld.value == 9){
+		hetVeld.value=9
+	}
+	else if(hetVeld.value == "tien" || hetVeld.value == 10){
+		hetVeld.value=10
+	}	
+	else if(hetVeld.value == "elf" || hetVeld.value == 11){
+		hetVeld.value=11
+	}
+	else if(hetVeld.value == "twaalf" || hetVeld.value == 12){
+		hetVeld.value=12
+	}
+	else if(hetVeld.value == "dertien" || hetVeld.value == 13){
+		hetVeld.value=13
+	}
+	else if(hetVeld.value == "veertien" || hetVeld.value == 14){
+		hetVeld.value=14
+	}
+	else if(hetVeld.value == "vijftien" || hetVeld.value == 15){
+		hetVeld.value=15
+	}
+	else if(hetVeld.value == "zestien" || hetVeld.value == 16){
+		hetVeld.value=16
+	}
+	else if(hetVeld.value == "zeventien" || hetVeld.value == 17){
+		hetVeld.value=17
+	}
+	else if(hetVeld.value == "achttien" || hetVeld.value == 18){
+		hetVeld.value=18
+	}
+	else if(hetVeld.value == "negentien" || hetVeld.value == 19){
+		hetVeld.value=19
+	}
+	else if(hetVeld.value == "twintig" || hetVeld.value == 20){
+		hetVeld.value=20 
+	}
+	else if(hetVeld.value == "bull" || hetVeld.value == "vijfentwintig" || hetVeld.value == 25){
+		hetVeld.value=25
+	}
+	else if(hetVeld.value == "bullseye" || hetVeld.value == "vijftig" || hetVeld.value == 50){
+		hetVeld.value=50
+	}
+	else if(hetVeld.value > 20){
+		hetVeld.value=0
+		alert("Dit nummer staat niet op een dartbord")
+	}
+	else{
+		hetVeld.value=0
+		alert("Dit is geen geldige invoer")
+		}
+	
+	var resultaat = Number(hetVeld.value)
+	console.log ("leesAantal: resultaat = ", resultaat,
+					"isNaN(resultaat) = ", isNaN(resultaat)
+					)
+	return resultaat
+}
+
+//function add() {return score -= (dubbel*tien); }
+
+function myFunction(){
+    document.getElementById("demo").innerHTML = add();
+}
+
+function dartPijl(aantal){
+	if(doubleOn==1){
+		score = score-(2*aantal)
+		var dblscore = 2*aantal
+		document.getElementById("afgehaaldeScore").innerHTML=("- 2 x "+aantal+" = "+dblscore)
+	}
+	else if(tripleOn==1){
+		score = score-(3*aantal)
+		var trpscore = 3*aantal
+		document.getElementById("afgehaaldeScore").innerHTML=("- 3 x "+aantal+" = "+trpscore)
+	}
+	else{
+		score = score-aantal
+		document.getElementById("afgehaaldeScore").innerHTML=("- "+aantal)
+	}
+}
+
+function resetDbl(){
+	document.getElementById("triplebtn").disabled = false;
+	document.getElementById("doublebtn").disabled = false;
+}
+
+function tripleAan(){
+	document.getElementById("doublebtn").disabled = false;
+	document.getElementById("triplebtn").disabled = true;
+	doubleOn = 0
+	return tripleOn = 1
+}
+
+function doubleAan(){
+	document.getElementById("triplebtn").disabled = false;
+	document.getElementById("doublebtn").disabled = true;
+	tripleOn = 0
+	return doubleOn = 1
+}
+
+function speelRonde(){
+	dartPijl(gegooideScore())
+	document.getElementById("geteldeScore").innerHTML=score
+	document.getElementById("gegooidInvoer").value = "";
+	resetDbl();
+}
+
+document.getElementById("countKnop").onclick = speelRonde
+
+</script>
+
+</body>
+</html>
