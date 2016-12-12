@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head lang="en-IE">
+	<meta charset="utf-8">	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/style.css" rel="stylesheet" media="all">
+</head>
+<body>
+	<main role="main">
+		<div class="msg" data-state="hidden">This browser doesn't support the WebKit Web Speech <abbr title="Application Programming Interface">API</abbr>. You need the latest version of Chrome. Sorry!</div>
+		<div class="rec-status">Recogniser status:<span id="recStatus">not recognising</span></div>
+		<button id="startRecBtn">Start Recognition</button>
+		<button id="stopRecBtn">Stop Recognition</button>
+		<ul>
+			<li id="enkel">"2"</li>
+			<li id="trippel">"hoi hoi"</li>
+			<li id="dubbel">"hallo hallo"</li>
+		</ul>
+	</main>
+	<script src="js/speech.js" defer></script>
+</body>
+</html>
